@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.238">
+    <testcase classname="contact Us Form" name="TC06 Form doldurma ve gonderme" time="0.08">
+        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception">
+            <![CDATA[When kullanici tarayiciyi baslatir..........................................undefined
+Then kullanici anasayfaya gider.............................................skipped
+Then ana sayfanin gorunur oldugunu test eder................................skipped
+Then kullanici contact us butonuna tiklar...................................skipped
+Then kullanici get in touch gorunur oldugunu test eder......................skipped
+Then kullanici, adi eposta adresi konu ve mesaji girer......................skipped
+Then kullanici dosyayi yukler...............................................skipped
+And kullanici gonder butonuna tiklar........................................skipped
+And kullanici ok butonuna tiklar............................................skipped
+And kullanici bilgilerin basariyla gonderildigini test eder.................skipped
+And kullanici ana sayfa butonunu tiklar ve anasayfaya gectigini test eder...skipped
+]]>
+        </failure>
+    </testcase>
+</testsuite>
