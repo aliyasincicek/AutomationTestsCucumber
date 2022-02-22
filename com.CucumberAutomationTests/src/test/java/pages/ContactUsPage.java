@@ -29,5 +29,11 @@ public class ContactUsPage {
    @FindBy (xpath = "//i[@class='fa fa-angle-double-left']")
     public WebElement homeButonu;
 
+   @FindBy (xpath = "//a[text()=' Test Cases']")
+    public WebElement testCaseButonu;
+
+   @FindBy (xpath = "//h2[@class='title text-center']")
+    public WebElement testCaseYaziElementi;
+
 
 }

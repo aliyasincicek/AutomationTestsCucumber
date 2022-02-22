@@ -1,19 +1,22 @@
 package stepdefinition;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.ContactUsPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class ContactUsStepDefs {
-    ContactUsPage contactUsPage;
+    ContactUsPage  contactUsPage=new ContactUsPage();
 
     @Then("kullanici contact us butonuna tiklar")
     public void kullanici_contact_us_butonuna_tiklar() {
-        contactUsPage=new ContactUsPage();
+
         contactUsPage.contactUsButonu.click();
     }
     @Then("kullanici get in touch gorunur oldugunu test eder")
@@ -43,6 +46,7 @@ public class ContactUsStepDefs {
     public void kullanici_ok_butonuna_tiklar() {
        Driver.getDriver().switchTo().alert().accept();
     }
+
     @Then("kullanici bilgilerin basariyla gonderildigini test eder")
     public void kullanici_bilgilerin_basariyla_gonderildigini_test_eder() {
         Assert.assertTrue(contactUsPage.basariliGonderiYazisi.isDisplayed());
@@ -52,6 +56,17 @@ public class ContactUsStepDefs {
         contactUsPage.homeButonu.click();
         String actualTitle=Driver.getDriver().getTitle();
         Assert.assertEquals("Automation Exercise",actualTitle);
-
+    }
+    @When("kullanici test case butonuna tiklar")
+    public void kullaniciTestCaseButonunaTiklar() {
+        contactUsPage.testCaseButonu.click();
+    }
+    @And("kullanici test case sayfasina basari ile ulastigini test eder")
+    public void kullaniciTestCaseSayfasinaBasariIleUlastiginiTestEder() {
+        Assert.assertTrue(contactUsPage.testCaseYaziElementi.isDisplayed());
+    }
+    @And("{int} saniye bekler")
+    public void saniyeBekler(int saniye) {
+        ReusableMethods.waitFor(saniye);
     }
 }

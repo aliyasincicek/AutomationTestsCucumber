@@ -32,4 +32,16 @@ public class MainPageFunctionalities {
 
     @FindBy(xpath = "//b[contains (text(),'Enter Account Information')]")
     public WebElement createAccountPageVerification;
+
+    @FindBy (xpath = "//input[@type='email']")
+    public WebElement sayfaninAltındakiEmailBox;
+
+    @FindBy (xpath = "//div[@class='single-widget']")
+    public WebElement subscriptionElementi;
+
+    @FindBy (xpath = "//i[@class='fa fa-home']")
+    public WebElement sayfaninAltindakiEmailOnayButonu;
+
+    @FindBy (xpath = "//div[@class='form-row']")
+    public WebElement basariliAboneYazisiElementi;
 }

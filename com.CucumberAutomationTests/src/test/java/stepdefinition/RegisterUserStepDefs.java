@@ -1,9 +1,11 @@
 package stepdefinition;
 
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import pages.MainPageFunctionalities;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -42,9 +44,7 @@ public class RegisterUserStepDefs {
     public void kullaniciOlarakIsimVeMailiGirer() {
         mainPageFunctionalities.nameBox.sendKeys("mehmet");
         mainPageFunctionalities.emailBox.sendKeys(Faker.instance().internet().emailAddress());
-
     }
-
     @Then("signup butonuna tiklar")
     public void signupButonunaTiklar() {
         mainPageFunctionalities.accountCreatSignupButton.click();
@@ -54,5 +54,29 @@ public class RegisterUserStepDefs {
     @Then("acilan sayfada ENTER ACCOUNT INFORMATION yazisinn gorunur oldugunu test eder")
     public void acilanSayfadaENTERACCOUNTINFORMATIONYazisinnGorunurOldugunuTestEder() {
         Assert.assertTrue(mainPageFunctionalities.createAccountPageVerification.isDisplayed());
+    }
+
+    @When("kullanici alt bilgiye ulasir")
+    public void kullaniciAltBilgiyeUlasir() {
+        JavascriptExecutor jse= (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView(true)",mainPageFunctionalities.sayfaninAltındakiEmailBox);
+    }
+
+    @And("kullanici subscription yazisini gorur")
+    public void kullaniciSubscriptionYazisiniGorur() {
+        String actualSubs=mainPageFunctionalities.subscriptionElementi.getText();
+        Assert.assertTrue(actualSubs.contains("SUBSCRIPTION"));
+    }
+
+    @And("kullanici eposta adresini girer ve ok butonuna tiklar")
+    public void kullaniciEpostaAdresiniGirerVeOkButonunaTiklar() {
+        mainPageFunctionalities.sayfaninAltındakiEmailBox.sendKeys("almanpanzeri@gmail.com");
+        mainPageFunctionalities.sayfaninAltindakiEmailOnayButonu.click();
+    }
+
+    @Then("kullanici basariyla abone oldugunu test eder")
+    public void kullaniciBasariylaAboneOldugunuTestEder() {
+        String actualBasariliAbone=mainPageFunctionalities.basariliAboneYazisiElementi.getText();
+        Assert.assertFalse(actualBasariliAbone.contains("You have been successfully subscribed!"));
     }
 }
