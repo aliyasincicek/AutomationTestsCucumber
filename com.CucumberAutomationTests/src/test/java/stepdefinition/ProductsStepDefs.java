@@ -59,6 +59,15 @@ public class ProductsStepDefs {
 
     @Then("aramayla ilgili tum urunlerin gorunur oldugunu test eder")
     public void aramaylaIlgiliTumUrunlerinGorunurOldugunuTestEder() {
+        Assert.assertTrue(productsPage.poloYaziElementi.isDisplayed());
+        Assert.assertTrue(productsPage.hmYaziElementi.isDisplayed());
+        Assert.assertTrue(productsPage.madameYaziElementi.isDisplayed());
+        Assert.assertTrue(productsPage.masthYaziElementi.isDisplayed());
+        Assert.assertTrue(productsPage.babyhugYaziElementi.isDisplayed());
+        Assert.assertTrue(productsPage.allensjYaziElementi.isDisplayed());
+        Assert.assertTrue(productsPage.kookieYzaiElementi.isDisplayed());
+        Assert.assertTrue(productsPage.bibaYaziElementi.isDisplayed());
+
 
     }
 }
