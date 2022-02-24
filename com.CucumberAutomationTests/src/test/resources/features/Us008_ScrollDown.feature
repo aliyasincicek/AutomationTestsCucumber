@@ -1,4 +1,5 @@
 Feature: Scroll down and main page functionalities
+
   Scenario: TC10 Subscription dogrulama
     When kullanici tarayiciyi baslatir
     Then kullanici anasayfaya gider
@@ -11,6 +12,8 @@ Feature: Scroll down and main page functionalities
     And 1 saniye bekler
     And kullanici eposta adresini girer ve ok butonuna tiklar
     Then kullanici basariyla abone oldugunu test eder
+
+
 
 
 
